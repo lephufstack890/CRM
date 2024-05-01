@@ -35,12 +35,20 @@ Route::post('/kenh-tay/store',[KenhTayController::class, 'store'])->name('kenhta
 Route::post('/kenh-tay/update/{id}',[KenhTayController::class, 'update'])->name('kenhtay.update');
 // Kenh Phuoc Hoa
 Route::get('/kenh-phuoc-hoa',[KenhPhuocHoaController::class, 'kenh_phuoc_hoa'])->middleware('auth');
+Route::post('/kenh-phuoc-hoa/store',[KenhPhuocHoaController::class, 'store'])->name('kenhphuochoa.store')->middleware('auth');
+Route::post('/kenh-phuoc-hoa/update/{id}',[KenhPhuocHoaController::class, 'update'])->name('kenhphuochoa.update')->middleware('auth');
 // Kenh Duc Hoa
 Route::get('/kenh-duc-hoa',[KenhDucHoaController::class, 'kenh_duc_hoa'])->middleware('auth');
+Route::post('/kenh-duc-hoa/store',[KenhDucHoaController::class, 'store'])->name('kenhduchoa.store')->middleware('auth');
+Route::post('/kenh-duc-hoa/update/{id}',[KenhDucHoaController::class, 'update'])->name('kenhduchoa.update')->middleware('auth');
 // Mau Dieu Tiet
 Route::get('/mau-dieu-tiet',[MauDieuTietController::class, 'mau_dieu_tiet'])->middleware('auth');
+Route::post('/mau-dieu-tiet/store',[MauDieuTietController::class, 'store'])->name('maudieutiet.store')->middleware('auth');
+Route::post('/mau-dieu-tiet/update/{id}',[MauDieuTietController::class, 'update'])->name('maudieutiet.update')->middleware('auth');
 // Mau Nhap So Lieu
 Route::get('/mau-nhap-so-lieu-theo-gio',[MauNhapSoController::class, 'mau_nhap_so'])->middleware('auth');
+Route::post('/mau-nhap-so-lieu-theo-gio/store',[MauNhapSoController::class, 'store'])->name('maunhapso.store')->middleware('auth');
+Route::post('/mau-nhap-so-lieu-theo-gio/update/{id}',[MauNhapSoController::class, 'update'])->name('maunhapso.update')->middleware('auth');
 
 Route::get('/export', 'ExcelController@export')->name('export');
 
