@@ -4,7 +4,6 @@
     <div style="text-align: end;">
         <button onclick="exportToExcel()">Xuất Excel</button>
         <button onclick="addRow()">Thêm Dòng</button>
-        <button onclick="showEditButtons(this)">Tác vụ</button>
     </div>
     <div class="table-responsive">
         <table class="data-table">
@@ -20,8 +19,8 @@
                     <th colspan="2">CĐT-K34+351</th>
                 </tr>
                 <tr>
-                    <th rowspan="3">HTL(m)</th>
-                    <th rowspan="3">HHL (m) 17,50</th>
+                    <th rowspan="2">HTL(m)</th>
+                    <th rowspan="2">HHL (m) 17,50</th>
                     <th colspan="3">Độ mở</th>
                     <th rowspan="2">HTL(m)17,32</th>
                     <th rowspan="2">HTL(m)16.20</th>

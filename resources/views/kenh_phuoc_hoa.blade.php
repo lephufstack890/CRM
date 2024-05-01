@@ -2,7 +2,7 @@
 
 @section('content')
     <div style="text-align: end;">
-        <button>Xuất Excel</button>
+        <button onclick="exportToExcel()">Xuất Excel</button>
         <button onclick="addRow()">Thêm Dòng</button>
     </div>
     <div class="table-responsive">

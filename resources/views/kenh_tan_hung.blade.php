@@ -13,10 +13,9 @@
                     <th colspan="2">Z(m)</th>
                     <th rowspan="2">Chênh lệch THL</th>
                     <th colspan="3">Độ mở a(m)</th>
-                    <th rowspan="3">Q(m3/s)</th>
-                    <th rowspan="3">Khối lượng 24h (m3)</th>
-                    <th rowspan="3">Ghi chú</th>
-                    <th rowspan="3" id="actions" style="display: none;">Tác vụ</th>
+                    <th rowspan="2">Q(m3/s)</th>
+                    <th rowspan="2">Khối lượng 24h (m3)</th>
+                    <th rowspan="2">Ghi chú</th>
                 </tr>
                 <tr>
                     <th>Thượng lưu</th>
@@ -91,10 +90,6 @@
         </table>
     </div>
     <script>
-        function exportToExcel() {
-            alert('Exporting to Excel...');
-        }
-
         function toggleEditMode(button) {
             var row = button.parentNode.parentNode;
             var cells = row.querySelectorAll('td');

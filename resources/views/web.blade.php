@@ -136,10 +136,26 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 <script>
+    var pathName = window.location.pathname; // "/kenh-tay"
+    var parts = pathName.split('/'); // ["", "kenh-tay"]
+    var desiredPart = parts[1]; // "kenh-tay"
+
     function exportToExcel() {
         var table = document.querySelector('.data-table');
-        var filename = "data.xlsx";
-        var ws = XLSX.utils.table_to_sheet(table);
+        if (desiredPart == "") {
+            var filename = "kenh-tan-hung.xlsx";
+        } else {
+            var filename = desiredPart + ".xlsx";
+        }
+        var tableClone = table.cloneNode(true);
+        var rows = tableClone.querySelectorAll('tr');
+        rows.forEach(function(row) {
+            var cells = row.querySelectorAll('td:last-child');
+            cells.forEach(function(cell) {
+                cell.parentNode.removeChild(cell);
+            });
+        });
+        var ws = XLSX.utils.table_to_sheet(tableClone);
         var wb = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
         XLSX.writeFile(wb, filename);
