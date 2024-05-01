@@ -229,7 +229,6 @@
                     dataType: 'json',
                     success: function(response) {
                         alert('Dữ liệu đã được cập nhật thành công!');
-                        document.getElementById("actions").style.display = "none";
                         location.reload();
                     },
                     error: function(xhr, ajaxOption, thrownError) {
