@@ -2,8 +2,12 @@
 
 @section('content')
     <div style="text-align: end;">
-        <button onclick="exportToExcel()">Xuất Excel</button>
-        <button onclick="addRow()">Thêm Dòng</button>
+        @can('kenh-tay-excel')
+            <button onclick="exportToExcel()">Xuất Excel</button>
+        @endcan
+        @can('kenh-tay-create')
+            <button onclick="addRow()">Thêm Dòng</button>
+        @endcan
     </div>
     <div class="table-responsive">
         <table class="data-table">
@@ -153,7 +157,9 @@
                                 value="{{ $kenhtay->HTL_13_47 }}" style="display: none;padding: 11px;">
                         </td>
                         <td>
-                            <button class="edit-btn" onclick="toggleEditMode(this)">Chỉnh sửa</button>
+                            @can('kenh-tay-update')
+                                <button class="edit-btn" onclick="toggleEditMode(this)">Chỉnh sửa</button>
+                            @endcan
                             <button class="update-btn" style="display: none;"
                                 onclick="updateRow('{{ $kenhtay->id }}')">Cập
                                 nhật</button>
