@@ -186,7 +186,6 @@
             updateButton.style.display = updateButton.style.display === 'none' ? 'inline-block' : 'none';
         }
 
-        
         function updateRow(id) {
             var row = document.querySelector('tr[data-id="' + id + '"]');
             if (row) {
