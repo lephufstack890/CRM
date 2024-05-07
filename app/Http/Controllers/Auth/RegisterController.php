@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -41,6 +42,13 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
+    public function showRegistrationForm()
+    {
+        $roles = Role::all(); 
+        return view('auth.register', compact('roles'));
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -72,6 +80,6 @@ class RegisterController extends Controller
 
         $user->roles()->attach($data['role_id']);
 
-        return $user; 
+        return $user;
     }
 }

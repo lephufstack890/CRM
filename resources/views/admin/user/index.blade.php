@@ -32,7 +32,14 @@
                         <td>{{$t}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
-                        <td>{{$user->role_id == 0 ? "User" : "Admin"}}</td>
+                        <td>
+                            @foreach($user->roles as $role)
+                                {{$role->name}}
+                                @if (!$loop->last)
+                                    ,
+                                @endif
+                            @endforeach
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

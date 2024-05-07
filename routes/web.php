@@ -57,6 +57,10 @@ Route::post('/mau-nhap-so-lieu-theo-gio/update/{id}',[MauNhapSoController::class
 
 Route::get('/export', 'ExcelController@export')->name('export');
 
+
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+
+
 // ADMIN
 
 Route::get('/admin', [DashboardController::class, 'index'])->middleware('auth');
@@ -64,6 +68,11 @@ Route::get('/admin', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/admin/user', [AdminUserController::class, 'index'])->name('user.index')->middleware('auth');
 
 Route::get('/admin/role', [AdminRoleController::class, 'index'])->name('role.index')->middleware('auth');
+Route::get('/admin/role/create', [AdminRoleController::class, 'create'])->name('role.create')->middleware('auth');
+Route::post('/admin/role/store', [AdminRoleController::class, 'store'])->name('role.store')->middleware('auth');
+Route::get('/admin/role/edit/{id}', [AdminRoleController::class, 'edit'])->name('role.edit')->middleware('auth');
+Route::post('/admin/role/update/{id}', [AdminRoleController::class, 'update'])->name('role.update')->middleware('auth');
+
 
 Route::get('/admin/permission', [AdminPermissionController::class, 'index'])->name('permission.index')->middleware('auth');
 
