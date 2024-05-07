@@ -20,7 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'password'
     ];
 
     /**
@@ -41,4 +41,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function roles(){
+        return $this->belongsToMany(Role::class, 'user_role', 'user_id', 'role_id');
+    }
+
+    public function checkPermissionAccess($permissionCheck){
+        $roles = auth()->user()->roles;
+        foreach($roles as $role){
+            $permissions = $role->permissions;
+            if($permissions->contains('key_permission', $permissionCheck)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

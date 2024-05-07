@@ -2,8 +2,12 @@
 
 @section('content')
     <div style="text-align: end;">
-        <button onclick="exportToExcel()">Xuất Excel</button>
-        <button onclick="addRow()">Thêm Dòng</button>
+        @can('mau-dieu-tiet-excel')
+            <button onclick="exportToExcel()">Xuất Excel</button>
+        @endcan
+        @can('mau-dieu-tiet-create')
+            <button onclick="addRow()">Thêm Dòng</button>
+        @endcan
     </div>
     <div class="table-responsive">
         <table class="data-table">
@@ -147,7 +151,9 @@
                                 value="{{ $maudieutiet->W_tong_nuoc_di_106_m3 }}" style="display: none;padding: 11px;">
                         </td>
                         <td>
-                            <button class="edit-btn" onclick="toggleEditMode(this)">Chỉnh sửa</button>
+                            @can('mau-dieu-tiet-update')
+                                <button class="edit-btn" onclick="toggleEditMode(this)">Chỉnh sửa</button>
+                            @endcan
                             <button 
                                 class="update-btn" 
                                 style="display: none;"
