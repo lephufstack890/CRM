@@ -11,7 +11,6 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminRoleController;
 use App\Http\Controllers\AdminPermissionController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,19 +62,22 @@ Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('r
 
 // ADMIN
 
-Route::get('/admin', [DashboardController::class, 'index'])->middleware('auth');
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin', [DashboardController::class, 'index']);
 
-Route::get('/admin/user', [AdminUserController::class, 'index'])->name('user.index')->middleware('auth');
+    Route::get('/admin/user', [AdminUserController::class, 'index'])->name('user.index');
+    Route::get('/admin/user/edit/{id}', [AdminUserController::class, 'edit'])->name('user.edit');
+    Route::post('/admin/user/update/{id}', [AdminUserController::class, 'update'])->name('user.update');
+    Route::get('/admin/user/delete/{id}', [AdminUserController::class, 'delete'])->name('user.delete');
 
-Route::get('/admin/role', [AdminRoleController::class, 'index'])->name('role.index')->middleware('auth');
-Route::get('/admin/role/create', [AdminRoleController::class, 'create'])->name('role.create')->middleware('auth');
-Route::post('/admin/role/store', [AdminRoleController::class, 'store'])->name('role.store')->middleware('auth');
-Route::get('/admin/role/edit/{id}', [AdminRoleController::class, 'edit'])->name('role.edit')->middleware('auth');
-Route::post('/admin/role/update/{id}', [AdminRoleController::class, 'update'])->name('role.update')->middleware('auth');
+    Route::get('/admin/role', [AdminRoleController::class, 'index'])->name('role.index');
+    Route::get('/admin/role/create', [AdminRoleController::class, 'create'])->name('role.create');
+    Route::post('/admin/role/store', [AdminRoleController::class, 'store'])->name('role.store');
+    Route::get('/admin/role/edit/{id}', [AdminRoleController::class, 'edit'])->name('role.edit');
+    Route::post('/admin/role/update/{id}', [AdminRoleController::class, 'update'])->name('role.update');
 
-
-Route::get('/admin/permission', [AdminPermissionController::class, 'index'])->name('permission.index')->middleware('auth');
-
+    Route::get('/admin/permission', [AdminPermissionController::class, 'index'])->name('permission.index');
+});
 
 
 
