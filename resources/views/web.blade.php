@@ -99,50 +99,37 @@
 <body>
     <div style="display: flex;align-items: center;justify-content: space-between;">
         <ul>
-            @can('kenh-tan-hung-list')
             <a href="/" class="<?php echo $_SERVER['REQUEST_URI'] == '/' ? 'active-link' : ''; ?>">
                 <li>Kênh Tân Hưng</li>
             </a>
-            @endcan
-            @can('kenh-dong-list')
             <a href="/kenh-dong" class="<?php echo $_SERVER['REQUEST_URI'] == '/kenh-dong' ? 'active-link' : ''; ?>">
                 <li>Kênh Đông</li>
             </a>
-            @endcan
-            @can('kenh-tay-list')
             <a href="/kenh-tay" class="<?php echo $_SERVER['REQUEST_URI'] == '/kenh-tay' ? 'active-link' : ''; ?>">
                 <li>Kênh Tây</li>
             </a>
-            @endcan
-            @can('kenh-phuoc-hoa-list')
             <a href="/kenh-phuoc-hoa" class="<?php echo $_SERVER['REQUEST_URI'] == '/kenh-phuoc-hoa' ? 'active-link' : ''; ?>">
                 <li>Phước Hòa</li>
             </a>
-            @endcan
-            @can('kenh-duc-hoa-list')
             <a href="/kenh-duc-hoa" class="<?php echo $_SERVER['REQUEST_URI'] == '/kenh-duc-hoa' ? 'active-link' : ''; ?>">
                 <li>Đức Hòa</li>
             </a>
-            @endcan
-            @can('mau-dieu-tiet-list')
             <a href="/mau-dieu-tiet" class="<?php echo $_SERVER['REQUEST_URI'] == '/mau-dieu-tiet' ? 'active-link' : ''; ?>">
                 <li>Mẫu Điều Tiết</li>
             </a>
-            @endcan
-            @can('mau-nhap-so-list')
             <a href="/mau-nhap-so-lieu-theo-gio" class="<?php echo $_SERVER['REQUEST_URI'] == '/mau-nhap-so-lieu-theo-gio' ? 'active-link' : ''; ?>">
                 <li>Mẫu Nhập Dữ Liệu Theo Giờ</li>
             </a>
-            @endcan
         </ul>
+        @if (Auth::check())
         <a href="{{ route('logout') }}"
             onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
             Thoát</a>
-
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
         </form>
+        @endif
     </div>
     <div>
         @yield('content')
