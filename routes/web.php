@@ -26,31 +26,31 @@ use Illuminate\Support\Facades\Route;
 
 
 // Kenh Dong
-Route::get('/kenh-dong',[KenhDongController::class, 'kenh_dong'])->name('kenhdong')->middleware('can:kenh-dong-list');
+Route::get('/kenh-dong',[KenhDongController::class, 'kenh_dong'])->name('kenhdong');
 Route::post('/kenh-dong/store',[KenhDongController::class, 'store'])->name('kenhdong.store')->middleware('can:kenh-dong-create');
 Route::post('/kenh-dong/update/{id}',[KenhDongController::class, 'update'])->name('kenhdong.update')->middleware('can:kenh-dong-update');
 // Kenh Tan Hung
-Route::get('/',[KenhTanHungController::class, 'kenh_tan_hung'])->name('kenhtanhung')->middleware('auth');
+Route::get('/',[KenhTanHungController::class, 'kenh_tan_hung'])->name('kenhtanhung');
 Route::post('/kenh-tan-hung/store',[KenhTanHungController::class, 'store'])->name('kenhtanhung.store')->middleware('can:kenh-tan-hung-create');
 Route::post('/kenh-tan-hung/update/{id}',[KenhTanHungController::class, 'update'])->name('kenhtanhung.update')->middleware('can:kenh-tan-hung-update');
 // Kenh Tay
-Route::get('/kenh-tay',[KenhTayController::class, 'kenh_tay'])->name('kenhtay')->middleware('can:kenh-tay-list');
+Route::get('/kenh-tay',[KenhTayController::class, 'kenh_tay'])->name('kenhtay');
 Route::post('/kenh-tay/store',[KenhTayController::class, 'store'])->name('kenhtay.store')->middleware('can:kenh-tay-create');
 Route::post('/kenh-tay/update/{id}',[KenhTayController::class, 'update'])->name('kenhtay.update')->middleware('can:kenh-tay-update');
 // Kenh Phuoc Hoa
-Route::get('/kenh-phuoc-hoa',[KenhPhuocHoaController::class, 'kenh_phuoc_hoa'])->name('kenhphuochoa')->middleware('can:kenh-phuoc-hoa-list');
+Route::get('/kenh-phuoc-hoa',[KenhPhuocHoaController::class, 'kenh_phuoc_hoa'])->name('kenhphuochoa');
 Route::post('/kenh-phuoc-hoa/store',[KenhPhuocHoaController::class, 'store'])->name('kenhphuochoa.store')->middleware('can:kenh-phuoc-hoa-create');
 Route::post('/kenh-phuoc-hoa/update/{id}',[KenhPhuocHoaController::class, 'update'])->name('kenhphuochoa.update')->middleware('can:kenh-phuoc-hoa-update');
 // Kenh Duc Hoa
-Route::get('/kenh-duc-hoa',[KenhDucHoaController::class, 'kenh_duc_hoa'])->name('kenhduchoa')->middleware('can:kenh-duc-hoa-list');
+Route::get('/kenh-duc-hoa',[KenhDucHoaController::class, 'kenh_duc_hoa'])->name('kenhduchoa');
 Route::post('/kenh-duc-hoa/store',[KenhDucHoaController::class, 'store'])->name('kenhduchoa.store')->middleware('can:kenh-duc-hoa-create');
 Route::post('/kenh-duc-hoa/update/{id}',[KenhDucHoaController::class, 'update'])->name('kenhduchoa.update')->middleware('can:kenh-duc-hoa-update');
 // Mau Dieu Tiet
-Route::get('/mau-dieu-tiet',[MauDieuTietController::class, 'mau_dieu_tiet'])->name('maudieutiet')->middleware('can:mau-dieu-tiet-list');
+Route::get('/mau-dieu-tiet',[MauDieuTietController::class, 'mau_dieu_tiet'])->name('maudieutiet');
 Route::post('/mau-dieu-tiet/store',[MauDieuTietController::class, 'store'])->name('maudieutiet.store')->middleware('can:mau-dieu-tiet-create');
 Route::post('/mau-dieu-tiet/update/{id}',[MauDieuTietController::class, 'update'])->name('maudieutiet.update')->middleware('can:mau-dieu-tiet-update');
 // Mau Nhap So Lieu
-Route::get('/mau-nhap-so-lieu-theo-gio',[MauNhapSoController::class, 'mau_nhap_so'])->name('maunhapso')->middleware('can:mau-nhap-so-list');
+Route::get('/mau-nhap-so-lieu-theo-gio',[MauNhapSoController::class, 'mau_nhap_so'])->name('maunhapso');
 Route::post('/mau-nhap-so-lieu-theo-gio/store',[MauNhapSoController::class, 'store'])->name('maunhapso.store')->middleware('can:mau-nhap-so-create');
 Route::post('/mau-nhap-so-lieu-theo-gio/update/{id}',[MauNhapSoController::class, 'update'])->name('maunhapso.update')->middleware('can:mau-nhap-so-update');
 

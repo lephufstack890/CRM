@@ -196,17 +196,15 @@
                             <input data-name-26="{{ $kenhphuochoa->HHL_29_48 }}" type="text" class="data-edit"
                                 value="{{ $kenhphuochoa->HHL_29_48 }}" style="display: none;padding: 11px;">
                         </td>
-                        <td>
-                            @can('kenh-phuoc-hoa-update')
+                        @can('kenh-phuoc-hoa-update')
+                            <td>
                                 <button class="edit-btn" onclick="toggleEditMode(this)">Chỉnh sửa</button>
-                            @endcan
-                            <button 
-                                class="update-btn" 
-                                style="display: none;"
-                                onclick="updateRow('{{ $kenhphuochoa->id }}')">
+                                <button class="update-btn" style="display: none;"
+                                    onclick="updateRow('{{ $kenhphuochoa->id }}')">
                                     Cập nhật
-                            </button>
-                        </td>
+                                </button>
+                            </td>
+                        @endcan
                     </tr>
                 @endforeach
             </tbody>
@@ -305,7 +303,7 @@
             }
         }
 
-        
+
         function addRow() {
             var tableBody = document.getElementById('table-body');
             var newRow = document.createElement('tr');

@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="row">
                                     @foreach($permissionsParentItem->permissionsChildrent as $permissionsParent)
-                                        <div class="card-body text-primary col-md-3">
+                                        <div class="card-body text-primary col-md-4">
                                             <h5 class="card-title">
                                                 <label>
                                                     <input type="checkbox" 

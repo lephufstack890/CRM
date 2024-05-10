@@ -156,14 +156,14 @@
                             <input data-name-9="{{ $kenhtay->HTL_13_47 }}" type="text" class="data-edit"
                                 value="{{ $kenhtay->HTL_13_47 }}" style="display: none;padding: 11px;">
                         </td>
-                        <td>
-                            @can('kenh-tay-update')
+                        @can('kenh-tay-update')
+                            <td>
                                 <button class="edit-btn" onclick="toggleEditMode(this)">Chỉnh sửa</button>
-                            @endcan
-                            <button class="update-btn" style="display: none;"
-                                onclick="updateRow('{{ $kenhtay->id }}')">Cập
-                                nhật</button>
-                        </td>
+                                <button class="update-btn" style="display: none;"
+                                    onclick="updateRow('{{ $kenhtay->id }}')">Cập
+                                    nhật</button>
+                            </td>
+                        @endcan
                     </tr>
                 @endforeach
             </tbody>

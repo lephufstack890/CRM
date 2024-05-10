@@ -147,20 +147,19 @@
                         </td>
                         <td data-name-19="{{ $maudieutiet->W_tong_nuoc_di_106_m3 }}">
                             <span class="data-view">{{ $maudieutiet->W_tong_nuoc_di_106_m3 }}</span>
-                            <input data-name-19="{{ $maudieutiet->W_tong_nuoc_di_106_m3 }}" type="text" class="data-edit"
-                                value="{{ $maudieutiet->W_tong_nuoc_di_106_m3 }}" style="display: none;padding: 11px;">
+                            <input data-name-19="{{ $maudieutiet->W_tong_nuoc_di_106_m3 }}" type="text"
+                                class="data-edit" value="{{ $maudieutiet->W_tong_nuoc_di_106_m3 }}"
+                                style="display: none;padding: 11px;">
                         </td>
-                        <td>
-                            @can('mau-dieu-tiet-update')
+                        @can('mau-dieu-tiet-update')
+                            <td>
                                 <button class="edit-btn" onclick="toggleEditMode(this)">Chỉnh sửa</button>
-                            @endcan
-                            <button 
-                                class="update-btn" 
-                                style="display: none;"
-                                onclick="updateRow('{{ $maudieutiet->id }}')">
+                                <button class="update-btn" style="display: none;"
+                                    onclick="updateRow('{{ $maudieutiet->id }}')">
                                     Cập nhật
-                            </button>
-                        </td>
+                                </button>
+                            </td>
+                        @endcan
                     </tr>
                 @endforeach
             </tbody>
@@ -252,7 +251,7 @@
             }
         }
 
-        
+
         function addRow() {
             var tableBody = document.getElementById('table-body');
             var newRow = document.createElement('tr');

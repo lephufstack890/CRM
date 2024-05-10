@@ -91,17 +91,14 @@
                             <input data-name-10="{{ $kenhduchoa->note }}" type="text" class="data-edit"
                                 value="{{ $kenhduchoa->note }}" style="display: none;padding: 11px;">
                         </td>
-                        <td>
-                            @can('kenh-duc-hoa-update')
+                        @can('kenh-duc-hoa-update')
+                            <td>
                                 <button class="edit-btn" onclick="toggleEditMode(this)">Chỉnh sửa</button>
-                            @endcan
-                            <button 
-                                class="update-btn" 
-                                style="display: none;" 
-                                onclick="updateRow('{{ $kenhduchoa->id }}')">
+                                <button class="update-btn" style="display: none;" onclick="updateRow('{{ $kenhduchoa->id }}')">
                                     Cập nhật
-                            </button>
-                        </td>
+                                </button>
+                            </td>
+                        @endcan
                     </tr>
                 @endforeach
             </tbody>
