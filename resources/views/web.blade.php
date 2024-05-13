@@ -91,7 +91,9 @@
             .data-table th,
             .data-table td {
                 min-width: 100px;
+                min-width: 133px !important;
             }
+
         }
     </style>
 </head>
@@ -122,13 +124,19 @@
             </a>
         </ul>
         @if (Auth::check())
-        <a href="{{ route('logout') }}"
-            onclick="event.preventDefault();
+            <a href="{{ route('logout') }}"
+                onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
-            Thoát</a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-        </form>
+                Thoát</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        @else()
+            <a href="/login"
+                style="    background: green;
+            padding: 7px 24px;
+            color: #fff;
+            text-decoration: none;">Login</a>
         @endif
     </div>
     <div>

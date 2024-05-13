@@ -1,5 +1,13 @@
 @extends('web')
+<style>
+    @media (min-width: 768px) {
 
+        .data-table th,
+        .data-table td {
+            min-width: 55px !important;
+        }
+    }
+</style>
 @section('content')
     <div style="text-align: end;">
         @can('mau-dieu-tiet-excel')
