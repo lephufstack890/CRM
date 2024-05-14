@@ -1,5 +1,13 @@
 @extends('web')
+<style>
+    @media (min-width: 768px) {
 
+        .data-table th,
+        .data-table td {
+            min-width: 50px !important;
+        }
+    }
+</style>
 @section('content')
     <div style="text-align: end;">
         @can('mau-nhap-so-excel')
@@ -57,7 +65,7 @@
             <tbody id="table-body">
                 @foreach ($maunhapsos as $maunhapso)
                     <tr data-id="{{ $maunhapso->id }}">
-                        <td data-name-0="{{ $maunhapso->day }}"> 
+                        <td data-name-0="{{ $maunhapso->day }}">
                             <span class="data-view">{{ $maunhapso->day }}</span>
                             <input data-name-0="{{ $maunhapso->day }}" type="text" class="data-edit"
                                 value="{{ $maunhapso->day }}" style="display: none;padding: 11px;">
@@ -192,17 +200,15 @@
                             <input data-name-26="{{ $maunhapso->QMT_m3 }}" type="text" class="data-edit"
                                 value="{{ $maunhapso->QMT_m3 }}" style="display: none;padding: 11px;">
                         </td>
-                        <td>
-                            @can('mau-nhap-so-update')
+                        @can('mau-nhap-so-update')
+                            <td>
                                 <button class="edit-btn" onclick="toggleEditMode(this)">Chỉnh sửa</button>
-                            @endcan
-                            <button 
-                                class="update-btn" 
-                                style="display: none;"
-                                onclick="updateRow('{{ $maunhapso->id }}')">
+                                <button class="update-btn" style="display: none;"
+                                    onclick="updateRow('{{ $maunhapso->id }}')">
                                     Cập nhật
-                            </button>
-                        </td>
+                                </button>
+                            </td>
+                        @endcan
                     </tr>
                 @endforeach
             </tbody>
@@ -301,7 +307,7 @@
             }
         }
 
-        
+
         function addRow() {
             var tableBody = document.getElementById('table-body');
             var newRow = document.createElement('tr');

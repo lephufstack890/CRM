@@ -1,5 +1,13 @@
 @extends('web')
+<style>
+    @media (min-width: 768px) {
 
+        .data-table th,
+        .data-table td {
+            min-width: 133px !important;
+        }
+    }
+</style>
 @section('content')
     <div style="text-align: end;">
         @can('kenh-tan-hung-excel')
@@ -82,14 +90,14 @@
                             <input data-name-9="{{ $kenhtanhung->note }}" type="text" class="data-edit"
                                 value="{{ $kenhtanhung->note }}" style="display: none;padding: 11px;">
                         </td>
-                        <td>
-                            @can('kenh-tan-hung-update')
+                        @can('kenh-tan-hung-update')
+                            <td>
                                 <button class="edit-btn" onclick="toggleEditMode(this)">Chỉnh sửa</button>
-                            @endcan
-                            <button class="update-btn" style="display: none;"
-                                onclick="updateRow('{{ $kenhtanhung->id }}')">Cập
-                                nhật</button>
-                        </td>
+                                <button class="update-btn" style="display: none;"
+                                    onclick="updateRow('{{ $kenhtanhung->id }}')">Cập
+                                    nhật</button>
+                            </td>
+                        @endcan
                     </tr>
                 @endforeach
             </tbody>
